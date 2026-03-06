@@ -3,83 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXUM</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Fresh</title>
+<link href="https://fonts.googleapis.com/css2?family=Burbank+Big+Condensed:wght@700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0d1117; color: #fff; font-family: 'Barlow Condensed', 'Arial Black', sans-serif; overflow-x: hidden; }
-
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  background: #0b0f16; display: flex; align-items: center;
-  justify-content: space-between; padding: 0 28px; height: 46px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.logo { font-size: 20px; font-weight: 900; letter-spacing: 4px; color: #fff; text-transform: uppercase; }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: #fff; }
-
-.hero { position: relative; margin-top: 46px; width: 100%; height: 490px; overflow: hidden; }
-.hero img.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.hero-fade-left { position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,4,3,0.92) 0%, rgba(5,4,3,0.65) 25%, rgba(5,4,3,0.2) 50%, transparent 70%); z-index: 1; }
-.hero-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to top, #0d1117 0%, transparent 100%); z-index: 1; }
-.hero-content { position: absolute; left: 58px; top: 50%; transform: translateY(-52%); z-index: 2; }
-
-.hero-eyebrow {
-  font-size: 16px; font-weight: 800; letter-spacing: 5px; color: #fff; text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
-  opacity: 0; transform: translateY(26px);
-  animation: up 0.6s cubic-bezier(.22,1,.36,1) forwards 0.1s;
-}
-.hero-title {
-  font-size: 100px; font-weight: 900; line-height: 0.85; color: #fff;
-  text-transform: uppercase; font-style: italic; letter-spacing: -1px;
-  text-shadow: 4px 4px 0 rgba(0,0,0,0.6);
-  opacity: 0; transform: translateY(34px);
-  animation: up 0.75s cubic-bezier(.22,1,.36,1) forwards 0.38s;
-}
-.hero-btn {
-  display: inline-block; margin-top: 28px;
-  background: #FFE000; color: #000;
-  font-size: 15px; font-weight: 900; letter-spacing: 2px;
-  padding: 14px 34px 14px 28px; text-decoration: none; text-transform: uppercase;
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
-  opacity: 0; transform: translateY(18px);
-  animation: up 0.55s cubic-bezier(.22,1,.36,1) forwards 0.78s;
-  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
-  cursor: pointer;
-}
-.hero-btn:hover { background: #fff; transform: scale(1.055); box-shadow: 0 0 32px rgba(255,224,0,0.55); }
-@keyframes up { to { opacity: 1; transform: translateY(0); } }
-
-.hero-spike { position: absolute; bottom: -1px; left: 0; right: 0; height: 84px; z-index: 3; pointer-events: none; }
-.hero-spike svg { display: block; width: 100%; height: 100%; }
-
-.section { padding: 64px 48px; }
-.section-title { text-align: center; font-size: 30px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #fff; margin-bottom: 38px; }
-
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-width: 1240px; margin: 0 auto; }
-.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; max-width: 1240px; margin: 6px auto 0; }
-
-.card { position: relative; overflow: hidden; cursor: pointer; display: block; background: #111; }
-.card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.38s cubic-bezier(.22,1,.36,1); }
-.card:hover img { transform: scale(1.06); }
-.card-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%); transition: opacity 0.3s; }
-.card:hover .card-shade { opacity: 0.8; }
-.badge { position: absolute; top: 12px; left: 12px; z-index: 2; background: #e8195a; color: #fff; font-size: 11px; font-weight: 900; letter-spacing: 1.5px; padding: 3px 9px; text-transform: uppercase; }
-
-.video-section { text-align: center; padding: 56px 48px 80px; }
-.video-wrap { max-width: 660px; margin: 0 auto; border: 1px solid #1e2530; }
-.video-wrap iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
-
-footer { padding: 28px 48px; text-align: center; color: rgba(255,255,255,0.25); font-size: 12px; letter-spacing: 1px; border-top: 1px solid #151c26; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow-x:hidden;}
+body{background:#0a0a0f;font-family:'Rajdhani',sans-serif;}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:52px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav-logo{color:#fff;font-size:22px;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-family:'Rajdhani',sans-serif;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.hero{position:relative;width:100%;height:100vh;min-height:600px;display:flex;align-items:flex-end;padding-bottom:80px;}
+.hero-bg{position:absolute;inset:0;background:url('banner.png') center center/cover no-repeat;z-index:0;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);}
+.hero-content{position:relative;z-index:1;padding-left:clamp(32px,6vw,120px);padding-bottom:clamp(60px,8vw,120px);}
+.hero-sub{display:block;color:#fff;font-size:clamp(13px,1.4vw,18px);font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,0.7);}
+.hero-title{display:block;font-family:'Rajdhani',sans-serif;font-size:clamp(72px,11vw,160px);font-weight:700;color:#fff;line-height:0.88;text-transform:uppercase;letter-spacing:-1px;text-shadow:2px 4px 0px rgba(0,0,0,0.5),0 0 60px rgba(0,0,0,0.4);}
+.hero-title span{display:block;}
+.hero-btn{display:inline-block;margin-top:32px;background:#f5d800;color:#000;font-family:'Rajdhani',sans-serif;font-size:clamp(15px,1.6vw,20px);font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:18px 52px;text-decoration:none;transition:background 0.15s,transform 0.15s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.hero-btn:hover{background:#ffe800;transform:scale(1.04);}
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="logo">NEXUM</div>
+  <div class="nav-logo">Fresh</div>
   <ul class="nav-links">
     <li><a href="#" class="active">Home</a></li>
     <li><a href="#">News</a></li>
@@ -87,91 +35,13 @@ footer { padding: 28px 48px; text-align: center; color: rgba(255,255,255,0.25); 
     <li><a href="#">Tournaments</a></li>
   </ul>
 </nav>
-
-<div class="hero">
-  <img class="hero-bg" src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/introducing-the-fortnite-season-8-battle-pass/S8_Social_Keyart-1920x1080-eca5c8d52f5aa7c27b3a6bfe879e4040f36f8af8.jpg" alt="Season 8">
-  <div class="hero-fade-left"></div>
-  <div class="hero-fade-bottom"></div>
+<section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">PROJECT NEXUM</div>
-    <div class="hero-title">SEASON 8</div>
-    <a href="#" class="hero-btn">DOWNLOAD FOR WINDOWS</a>
+    <span class="hero-sub">Project Fresh</span>
+    <span class="hero-title"><span>SEASON 8</span></span>
+    <a href="#" class="hero-btn">DOWNLOAD</a>
   </div>
-  <div class="hero-spike">
-    <svg viewBox="0 0 1440 84" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,84 720,0 1440,84" fill="#0d1117"/>
-    </svg>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">THE LATEST NEWS!</div>
-  <div class="grid2">
-    <div class="card" style="height:316px;">
-      <img src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/introducing-the-fortnite-season-8-battle-pass/S8_BP_Keyart-1920x1080-5e4aba37af9d1a6d9d6a2a2a2a2a2a2a.jpg" alt="News 1" onerror="this.style.display='none'">
-      <div style="position:absolute;inset:0;background:linear-gradient(145deg,#3d1c00,#8a4010,#c8701e,#e09830,#b85020,#7a1a10);display:none;" class="fallback"></div>
-      <div class="card-shade"></div>
-      <div class="badge">NEW</div>
-    </div>
-    <div class="card" style="height:316px;">
-      <img src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/fortnite-season-8-whats-new/S8_WhatsNew-1920x1080-a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2.jpg" alt="News 2" onerror="this.style.background='linear-gradient(160deg,#1a0008,#420018,#8a0035,#cc3800,#ff8800)'">
-      <div class="card-shade"></div>
-    </div>
-  </div>
-  <div class="grid3">
-    <div class="card" style="height:200px;">
-      <img src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/introducing-the-fortnite-season-8-battle-pass/S8_BP_Keyart-1920x1080-5e4aba37af9d1a6d9d6a2a2a2a2a2a2a.jpg" alt="News 3" onerror="this.style.background='linear-gradient(135deg,#321800,#603010,#b86825)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:200px;">
-      <img src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/fortnite-season-8-patch-notes/S8_PatchNotes-1920x1080-a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2.jpg" alt="News 4" onerror="this.style.background='linear-gradient(150deg,#1e0000,#520000,#960000,#cc1800)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:200px;">
-      <img src="https://cdn2.unrealengine.com/Fortnite/fortnite-game/blog/fortnite-season-8-content-update-1/S8_ContentUpdate1-1920x1080-a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2.jpg" alt="News 5" onerror="this.style.background='linear-gradient(150deg,#180000,#440000,#800000,#b01200)'">
-      <div class="card-shade"></div>
-    </div>
-  </div>
-</div>
-
-<div class="section" style="padding-top:16px;">
-  <div class="section-title">WITH AN INCREDIBLE COMMUNITY</div>
-  <div class="grid2">
-    <div class="card" style="height:234px;">
-      <img src="https://i.imgur.com/QWtKjPO.jpg" alt="Community 1" onerror="this.style.background='linear-gradient(135deg,#050e05,#0e1e0e,#152815)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:234px;">
-      <img src="https://i.imgur.com/8TqQ3fH.jpg" alt="Community 2" onerror="this.style.background='linear-gradient(135deg,#050a14,#0d1424,#151e34)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:196px;">
-      <img src="https://i.imgur.com/Yx9mBv2.jpg" alt="Community 3" onerror="this.style.background='linear-gradient(135deg,#030804,#080f08,#0e180e)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:196px;">
-      <img src="https://i.imgur.com/3kZdK8t.jpg" alt="Community 4" onerror="this.style.background='linear-gradient(135deg,#120c04,#201408,#28180a)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:196px;">
-      <img src="https://i.imgur.com/wNmR5xL.jpg" alt="Community 5" onerror="this.style.background='linear-gradient(135deg,#050e06,#0a1a0c,#102010)'">
-      <div class="card-shade"></div>
-    </div>
-    <div class="card" style="height:196px;">
-      <img src="https://i.imgur.com/VkPc9sA.jpg" alt="Community 6" onerror="this.style.background='linear-gradient(135deg,#060a14,#0e1220,#16202e)'">
-      <div class="card-shade"></div>
-    </div>
-  </div>
-</div>
-
-<div class="video-section">
-  <div class="section-title">PLAY NOW!</div>
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/2wcj6mTgr6g" title="Project Nexum Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-
-<footer>&copy; 2024 Project Nexum &mdash; All rights reserved.</footer>
-
+</section>
 </body>
 </html>
