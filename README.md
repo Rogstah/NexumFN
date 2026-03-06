@@ -1,2 +1,2 @@
-# NexumFN
+# FreshFN
 OGFN Launcher
