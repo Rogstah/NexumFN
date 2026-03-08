@@ -6,62 +6,112 @@
   <title></title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; }
-    .box { width: 560px; height: 315px; position: relative; overflow: hidden; background: #000; }
-    .box iframe { position: absolute; top: -60px; left: -10px; width: 580px; height: 440px; border: none; pointer-events: none; }
+    html, body { width: 100%; min-height: 100vh; background: #0d1117; display: flex; align-items: center; justify-content: center; padding: 24px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 8px;
+      width: 100%;
+      max-width: 1400px;
+    }
+
+    .cell {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16/9;
+    }
+
+    .cell.wide {
+      grid-column: span 2;
+    }
+
+    .cell iframe {
+      position: absolute;
+      top: -11.25%;
+      left: -1.78%;
+      width: 103.56%;
+      height: 122.5%;
+      border: none;
+      pointer-events: none;
+    }
+
+    .cell .label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 11px;
+      padding: 18px 8px 6px;
+      pointer-events: none;
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
-  <div class="box">
-    <div id="player"></div>
+  <div class="grid">
+    <div class="cell wide" id="p0"></div>
+    <div class="cell" id="p1"></div>
+    <div class="cell" id="p2"></div>
+    <div class="cell" id="p3"></div>
+    <div class="cell" id="p4"></div>
   </div>
+
   <script>
-    const VIDEO_ID = 'CAKanjchZjA';
-    const START = 535;
-    const END = 548;
+    const VIDEOS = [
+      { id: 'CAKanjchZjA', start: 535, end: 548 },
+      { id: 'CAKanjchZjA', start: 535, end: 548 },
+      { id: 'CAKanjchZjA', start: 535, end: 548 },
+      { id: 'CAKanjchZjA', start: 535, end: 548 },
+      { id: 'CAKanjchZjA', start: 535, end: 548 },
+    ];
 
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.head.appendChild(tag);
 
-    let player;
+    const players = [];
 
     window.onYouTubeIframeAPIReady = function() {
-      player = new YT.Player('player', {
-        videoId: VIDEO_ID,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          modestbranding: 1,
-          rel: 0,
-          disablekb: 1,
-          fs: 0,
-          iv_load_policy: 3,
-          start: START
-        },
-        events: {
-          onReady: function(e) {
-            e.target.mute();
-            e.target.seekTo(START, true);
-            e.target.playVideo();
+      VIDEOS.forEach(function(v, i) {
+        const p = new YT.Player('p' + i, {
+          videoId: v.id,
+          playerVars: {
+            autoplay: 1, mute: 1, controls: 0,
+            modestbranding: 1, rel: 0, disablekb: 1,
+            fs: 0, iv_load_policy: 3, start: v.start,
+            vq: 'hd1080'
           },
-          onStateChange: function(e) {
-            if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
-              e.target.seekTo(START, true);
+          events: {
+            onReady: function(e) {
+              e.target.mute();
+              e.target.setPlaybackQuality('hd1080');
+              e.target.seekTo(v.start, true);
               e.target.playVideo();
+            },
+            onStateChange: function(e) {
+              if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+                e.target.seekTo(v.start, true);
+                e.target.playVideo();
+              }
             }
           }
-        }
+        });
+        players.push({ player: p, start: v.start, end: v.end });
       });
     };
 
     setInterval(function() {
-      if (!player || !player.getCurrentTime) return;
-      if (player.getCurrentTime() >= END) {
-        player.seekTo(START, true);
-        player.playVideo();
-      }
+      players.forEach(function(obj) {
+        if (!obj.player || !obj.player.getCurrentTime) return;
+        if (obj.player.getCurrentTime() >= obj.end) {
+          obj.player.seekTo(obj.start, true);
+          obj.player.playVideo();
+        }
+      });
     }, 300);
   </script>
 </body>
